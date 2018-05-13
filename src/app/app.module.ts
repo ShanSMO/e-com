@@ -5,6 +5,8 @@ import {SecurityModule} from './component/security/security.module';
 import {DashboardModule} from './component/dashboard/dashboard.module';
 import {RouterModule} from '@angular/router';
 import {routers} from './route/const';
+import {BuyingSellingModule} from './component/buying-selling/buying-selling.module';
+import {SettingsModule} from './component/settings/settings.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import {routers} from './route/const';
     BrowserModule,
     RouterModule.forRoot(routers),
     SecurityModule,
-    DashboardModule
+    DashboardModule,
+    BuyingSellingModule,
+    SettingsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
