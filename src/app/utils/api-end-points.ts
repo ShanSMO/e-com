@@ -1,3 +1,3 @@
 export const ApiEndPoints = {
-  API_LOGIN: '/login'
+  API_LOGIN: '/user/login'
 };
