@@ -1,0 +1,25 @@
+.login-div {
+  background: #ffffff;
+  padding: 15px;
+  position: relative;
+  margin: 10% auto;
+  border-radius: 5px;
+}
+
+.login-btn-div {
+  float: right;
+  text-align: right;
+  padding: 0;
+  width: 100%;
+}
+
+.reset-password {
+  float: left;
+  padding: 0;
+}
+
+.login-btn {
+  color: #fff;
+  background-color: #01a65a !important;
+  border-color: #039853 !important;
+}

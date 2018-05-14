@@ -5,11 +5,14 @@ import {DashboardComponent} from '../component/dashboard/dashboard/dashboard.com
 import {SettingsComponent} from '../component/settings/settings/settings.component';
 import {BuyingComponent} from '../component/buying-selling/buying/buying.component';
 import {SellingComponent} from '../component/buying-selling/selling/selling.component';
+import {CommonLayoutComponent} from '../component/layout/common-layout/common-layout.component';
 
 export const routers: Routes = [
   {path: 'login' , component: LoginComponent},
   {path: 'reset-password' , component: ResetPasswordComponent},
-  {path: 'dashboard' , component: DashboardComponent},
+  {path: '' , component: CommonLayoutComponent, children: [
+      {path: 'dashboard' , component: DashboardComponent}
+    ]},
   {path: 'buying' , component: BuyingComponent},
   {path: 'selling' , component: SellingComponent},
   {path: 'settings' , component: SettingsComponent},

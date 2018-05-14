@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=News+Cycle:400,700&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed:100,200,300,400,500,600,700,800,900&subset=latin-ext');
+
+body {
+  background-image: url("assets/images/body-bgs/body-bg.jpg");
+  /*font-family: 'News Cycle', sans-serif !important;*/
+  font-family: 'Barlow Condensed', sans-serif !important;
+}
+
+input[type=text], input[type=password] {
+  border-radius: 0;
+}

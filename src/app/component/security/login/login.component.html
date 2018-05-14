@@ -1,3 +1,37 @@
-<p>
-  login works!
-</p>
+<div class="animated fadeInDown">
+
+  <div>
+    <h1>E-Com </h1>
+  </div>
+
+  <div class="col-md-4 login-div">
+
+    <div class="form-group">
+      <h2>Login</h2>
+    </div>
+
+    <form [formGroup]="loginForm" (submit)="login()">
+      <div class="form-group">
+        <label>User Name</label>
+        <input class="form-control" placeholder="User name" type="text" formControlName="userName">
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input class="form-control" placeholder="User name" type="password" formControlName="password">
+      </div>
+
+
+      <div class="form-group clearfix">
+        <div class="col-md-6 reset-password">
+          <a routerLink="/reset-password">Reset password ?</a>
+        </div>
+        <div class="col-md-6 login-btn-div">
+          <button class="btn btn-success col-md-12 login-btn" type="submit"
+                  [disabled]="loginForm.invalid">Login</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

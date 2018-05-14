@@ -7,6 +7,9 @@ import {RouterModule} from '@angular/router';
 import {routers} from './route/const';
 import {BuyingSellingModule} from './component/buying-selling/buying-selling.module';
 import {SettingsModule} from './component/settings/settings.module';
+import {HttpClientModule} from '@angular/common/http';
+import {SideNavigationModule} from './component/common/side-navigation/side-navigation.module';
+import {LayoutModule} from './component/layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import {SettingsModule} from './component/settings/settings.module';
     SecurityModule,
     DashboardModule,
     BuyingSellingModule,
-    SettingsModule
+    SettingsModule,
+    HttpClientModule,
+    SideNavigationModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
