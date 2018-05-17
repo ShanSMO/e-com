@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-common-layout',
@@ -10,6 +11,13 @@ export class CommonLayoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // $(document).ready(function () {
+
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+      });
+
+    // });
   }
 
 }

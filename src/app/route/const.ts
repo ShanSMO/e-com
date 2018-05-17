@@ -6,6 +6,7 @@ import {SettingsComponent} from '../component/settings/settings/settings.compone
 import {BuyingComponent} from '../component/buying-selling/buying/buying.component';
 import {SellingComponent} from '../component/buying-selling/selling/selling.component';
 import {CommonLayoutComponent} from '../component/layout/common-layout/common-layout.component';
+import {ProductSettingComponent} from '../component/configuration/product-setting/product-setting.component';
 
 export const routers: Routes = [
   {path: 'login' , component: LoginComponent},
@@ -14,6 +15,11 @@ export const routers: Routes = [
       {path: 'dashboard' , component: DashboardComponent}
     ]},
   {path: 'buying' , component: BuyingComponent},
-  {path: 'selling' , component: SellingComponent},
+  {path: '' , component: CommonLayoutComponent, children: [
+    {path: 'selling' , component: SellingComponent}
+  ]},
+  {path: '' , component: CommonLayoutComponent, children: [
+    {path: 'product-setting' , component: ProductSettingComponent}
+  ]},
   {path: 'settings' , component: SettingsComponent},
   ];

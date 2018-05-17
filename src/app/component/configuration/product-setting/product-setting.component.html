@@ -1,3 +1,33 @@
-<p>
-  product-setting works!
-</p>
+<div class="animated" style="padding: 10px;">
+
+  <div class="card p-3">
+    <h2>Add Product</h2>
+
+    <div class="col-md-6">
+      <div class="clearfix form-group">
+        <label>Category</label>
+        <select class="form-control">
+          <option *ngFor="let category of categoryList" [value]="category">{{category.categoryName}}</option>
+        </select>
+      </div>
+
+      <div class="clearfix form-group">
+        <label>Brand</label>
+        <select class="form-control">
+          <option></option>
+        </select>
+      </div>
+
+      <div class="clearfix form-group">
+        <label>Modal</label>
+        <select class="form-control">
+          <option></option>
+        </select>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>

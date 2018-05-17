@@ -1,3 +1,64 @@
-<!--<app-side-navigation></app-side-navigation>-->
+<div class="wrapper" style="background: #e3e3e3;">
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <h3>E-COM</h3>
+      <strong>EC</strong>
+    </div>
 
-<router-outlet></router-outlet>
+    <ul class="list-unstyled components">
+      <li class="active">
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+          <i class="fa fa-bed"></i>
+          &nbsp;&nbsp;Home
+        </a>
+      </li>
+      <li>
+        <a href="#" routerLink="/dashboard">
+          <i class="fa fa-print"></i>
+          &nbsp;&nbsp; Dashboard
+        </a>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+          <i class="fa fa-address-book"></i>
+          &nbsp;&nbsp; Pages
+        </a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <li><a href="#">Page 1</a></li>
+          <li><a href="#">Page 2</a></li>
+          <li><a href="#">Page 3</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" routerLink="/selling">
+          <i class="fa fa-bath"></i>
+          &nbsp;&nbsp; Selling
+        </a>
+      </li>
+
+      <li>
+        <a href="#" routerLink="/product-setting">
+          <i class="fa fa-sliders"></i>
+          &nbsp;&nbsp; Configurations
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-calendar-o"></i>
+          &nbsp;&nbsp; Contact
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+
+  <div id="content">
+    <div style="background: #ffffff;padding: 5px;">
+      <div  style="padding: 5px;">
+        <i id="sidebarCollapse" class="fa fa-bars" style="border-right: 1px solid #a6a6a6;padding-right: 10px;cursor: pointer"></i>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
