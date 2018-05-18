@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BuyingComponent } from './buying/buying.component';
-import { SellingComponent } from './selling/selling.component';
+import {SellingModule} from './selling/selling.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    SellingModule
   ],
-  declarations: [BuyingComponent, SellingComponent]
+  declarations: [BuyingComponent]
 })
 export class BuyingSellingModule { }

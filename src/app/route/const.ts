@@ -4,9 +4,9 @@ import {ResetPasswordComponent} from '../component/security/reset-password/reset
 import {DashboardComponent} from '../component/dashboard/dashboard/dashboard.component';
 import {SettingsComponent} from '../component/settings/settings/settings.component';
 import {BuyingComponent} from '../component/buying-selling/buying/buying.component';
-import {SellingComponent} from '../component/buying-selling/selling/selling.component';
 import {CommonLayoutComponent} from '../component/layout/common-layout/common-layout.component';
 import {ProductSettingComponent} from '../component/configuration/product-setting/product-setting.component';
+import {PhotoCopyComponent} from '../component/buying-selling/selling/photo-copy/photo-copy.component';
 
 export const routers: Routes = [
   {path: 'login' , component: LoginComponent},
@@ -16,7 +16,7 @@ export const routers: Routes = [
     ]},
   {path: 'buying' , component: BuyingComponent},
   {path: '' , component: CommonLayoutComponent, children: [
-    {path: 'selling' , component: SellingComponent}
+    {path: 'selling-photo-copy' , component: PhotoCopyComponent}
   ]},
   {path: '' , component: CommonLayoutComponent, children: [
     {path: 'product-setting' , component: ProductSettingComponent}

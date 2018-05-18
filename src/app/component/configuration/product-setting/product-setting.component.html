@@ -3,30 +3,140 @@
   <div class="card p-3">
     <h2>Add Product</h2>
 
-    <div class="col-md-6">
-      <div class="clearfix form-group">
-        <label>Category</label>
-        <select class="form-control">
-          <option *ngFor="let category of categoryList" [value]="category">{{category.categoryName}}</option>
-        </select>
+    <div class="row">
+      <div class="col-md-4">
+        <form [formGroup]="productCreateForm" (submit)="createProduct()">
+          <div class="clearfix form-group">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Category</label></div>
+              <div class="col-md-9">
+                <select formControlName="category">
+                  <option *ngFor="let category of categoryList" [ngValue]="category">{{category.categoryName}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'PC' || productCreateForm.get('category').value.code == 'PO'">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Sheet Size</label></div>
+              <div class="col-md-9">
+                <select formControlName="sheetSize">
+                  <option>A4</option>
+                  <option>A3</option>
+                  <option>B5</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'PC' || productCreateForm.get('category').value.code == 'PO'">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Medium</label></div>
+              <div class="col-md-9">
+                <select formControlName="medium">
+                  <option>Color</option>
+                  <option>Black & White</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'PC' || productCreateForm.get('category').value.code == 'PO'">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Side</label></div>
+              <div class="col-md-9">
+                <select formControlName="mode">
+                  <option>Single Side</option>
+                  <option>Double Side</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'PC' || productCreateForm.get('category').value.code == 'PO'">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Unit Price</label></div>
+              <div class="col-md-9">
+                <input type="number">
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'MP'">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Brand</label></div>
+              <div class="col-md-9">
+                <select formControlName="brand">
+                  <option>Sony</option>
+                  <option>Samsung</option>
+                  <option>Apple</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'MP'">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Modal</label></div>
+              <div class="col-md-9">
+                <select formControlName="modal">
+                  <option>ST-26 i</option>
+                  <option>ST-26 a</option>
+                  <option>A5</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'MP'">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Buying Price</label></div>
+              <div class="col-md-9">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Rs</span>
+                  </div>
+                  <input type="text" class="form-control text-right" formControlName="buyingPrice">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'MP'">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Profit</label></div>
+              <div class="col-md-9">
+
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" >Rs</span>
+                  </div>
+                  <input class="form-control text-right" type="text" formControlName="profit" >
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="clearfix form-group">
+            <label>Selling Price</label>
+            <h2>{{( productCreateForm.get('buyingPrice').value *1 + productCreateForm.get('profit').value *1 )| currency: 'Rs. '}}</h2>
+          </div>
+
+          <div class="clearfix form-group text-right">
+            <button  type="submit">Save</button>
+          </div>
+        </form>
       </div>
 
-      <div class="clearfix form-group">
-        <label>Brand</label>
-        <select class="form-control">
-          <option></option>
-        </select>
+
+      <div class="col-md-8">
+        <h2>Added Products</h2>
+        <div class="card p-3">sd</div>
+        <div class="card p-3">sd</div>
       </div>
-
-      <div class="clearfix form-group">
-        <label>Modal</label>
-        <select class="form-control">
-          <option></option>
-        </select>
-      </div>
-
-
-
     </div>
 
   </div>

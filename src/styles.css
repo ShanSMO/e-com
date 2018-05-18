@@ -8,7 +8,25 @@ body {
   font-family: 'Barlow Condensed', sans-serif !important;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password] ,input[type=number] , select {
   border-radius: 0;
+  height: 40px;
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
+button {
+  height: 40px;
+  min-width: 150px;
+  cursor: pointer;
+}
+
+.input-group-text {
+  border-radius: 0px !important;
+}
+
+.pt-5px {
+  padding-top: 5px;
+}
