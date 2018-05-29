@@ -23,12 +23,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "src/assets/css/jquery-ui.css",
               "src/assets/css/animate.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
+              "src/assets/js/jquery-ui.js",
               "node_modules/bootstrap/dist/js/bootstrap.js"
             ]
           },
