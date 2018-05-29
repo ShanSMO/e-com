@@ -10,7 +10,9 @@ import {SettingsModule} from './component/settings/settings.module';
 import {HttpClientModule} from '@angular/common/http';
 import {SideNavigationModule} from './component/common/side-navigation/side-navigation.module';
 import {LayoutModule} from './component/layout/layout.module';
-import {ConfigurationModule} from "./component/configuration/configuration.module";
+import {ConfigurationModule} from './component/configuration/configuration.module';
+import {ReportModule} from './component/report/report.module';
+import {StockModule} from './component/stock/stock.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {ConfigurationModule} from "./component/configuration/configuration.modul
     HttpClientModule,
     SideNavigationModule,
     LayoutModule,
-    ConfigurationModule
+    ConfigurationModule,
+    ReportModule,
+    StockModule
   ],
   providers: [],
   bootstrap: [AppComponent]
