@@ -10,6 +10,11 @@ import { AccessoryReportComponent } from './accessory-report/accessory-report.co
   imports: [
     CommonModule
   ],
-  declarations: [PhotoCopyReportComponent, MobilePhoneReportComponent, RechargeCardReportComponent, PhonePartsReportComponent, AccessoryReportComponent]
+  declarations: [
+    PhotoCopyReportComponent,
+    MobilePhoneReportComponent,
+    RechargeCardReportComponent,
+    PhonePartsReportComponent,
+    AccessoryReportComponent]
 })
 export class ReportModule { }

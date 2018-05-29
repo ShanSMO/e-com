@@ -1,5 +1,5 @@
 <div class="wrapper" style="background: #e3e3e3;">
-  <nav id="sidebar">
+  <nav id="sidebar" class="active">
     <div class="sidebar-header">
       <h3>E-COM</h3>
       <strong>EC</strong>
@@ -14,36 +14,43 @@
       </li>
       <li>
         <a href="#" routerLink="/dashboard">
-          <i class="fa fa-print"></i>
+          <i class="fa fa-bar-chart"></i>
           &nbsp;&nbsp; Dashboard
         </a>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-          <i class="fa fa-address-book"></i>
-          &nbsp;&nbsp; Pages
-        </a>
-        <ul class="collapse list-unstyled" id="pageSubmenu">
-          <li><a href="#">Page 1</a></li>
-          <li><a href="#">Page 2</a></li>
-          <li><a href="#">Page 3</a></li>
-        </ul>
+        <!--<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">-->
+          <!--<i class="fa fa-address-book"></i>-->
+          <!--&nbsp;&nbsp; Pages-->
+        <!--</a>-->
+        <!--<ul class="collapse list-unstyled" id="pageSubmenu">-->
+          <!--<li><a href="#">Page 1</a></li>-->
+          <!--<li><a href="#">Page 2</a></li>-->
+          <!--<li><a href="#">Page 3</a></li>-->
+        <!--</ul>-->
       </li>
       <li>
-        <a href="#" routerLink="/selling-photo-copy">
-          <i class="fa fa-bath"></i>
+        <a href="#" routerLink="/selling/photo-copy">
+          <i class="fa fa-shopping-cart"></i>
           &nbsp;&nbsp; Selling
+        </a>
+      </li>
+
+      <li>
+        <a href="#" routerLink="/report">
+          <i class="fa fa-file"></i>
+          &nbsp;&nbsp; Report
         </a>
       </li>
 
       <li>
         <a href="#" routerLink="/product-setting">
           <i class="fa fa-sliders"></i>
-          &nbsp;&nbsp; Configurations
+          &nbsp;&nbsp; Stock
         </a>
       </li>
       <li>
-        <a href="#">
-          <i class="fa fa-calendar-o"></i>
-          &nbsp;&nbsp; Contact
+        <a href="#" routerLink="/stock/mobile">
+          <i class="fa fa-wrench"></i>
+          &nbsp;&nbsp; Stock Add
         </a>
       </li>
     </ul>

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotoCopyReportComponent implements OnInit {
 
+  itemList: any[] = [1];
   constructor() { }
 
   ngOnInit() {

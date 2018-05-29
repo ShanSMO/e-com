@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import {Route} from '@angular/router';
 
 @Component({
   selector: 'app-selling',

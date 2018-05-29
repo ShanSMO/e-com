@@ -1,141 +1,146 @@
 <div class="animated" style="padding: 10px;">
 
   <div class="card p-3">
-    <h2>Add Product</h2>
-
     <div class="row">
       <div class="col-md-4">
-        <form [formGroup]="productCreateForm" (submit)="createProduct()">
-          <div class="clearfix form-group">
-            <div class="row">
-              <div class="col-md-3 pt-5px"><label>Category</label></div>
-              <div class="col-md-9">
-                <select formControlName="category">
-                  <option *ngFor="let category of categoryList" [ngValue]="category">{{category.categoryName}}</option>
-                </select>
-              </div>
+        <div class="clearfix form-group">
+          <div class="row">
+            <div class="col-md-3 pt-5px"><label>Category</label></div>
+            <div class="col-md-9">
+              <select [(ngModel)]="selectedCategory" (change)="loadDataForCategory()">
+                <option  [ngValue]="null" disabled>Select a category</option>
+                <option *ngFor="let category of categoryList" [ngValue]="category">{{category.categoryName}}</option>
+              </select>
             </div>
           </div>
-
-          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'PC' || productCreateForm.get('category').value.code == 'PO'">
+        </div>
+        <form [formGroup]="photocopyCreateForm" (submit)="createPhotoCopy()" *ngIf="selectedCategory.code == 'PC' || selectedCategory.code == 'PO' ">
+          <div class="clearfix form-group">
             <div class="row">
               <div class="col-md-3 pt-5px"><label>Sheet Size</label></div>
               <div class="col-md-9">
                 <select formControlName="sheetSize">
-                  <option>A4</option>
-                  <option>A3</option>
-                  <option>B5</option>
+                  <option *ngFor="let pageSize of pageSizes" [value]="pageSize.id">{{pageSize.sizeValue}}</option>
                 </select>
               </div>
             </div>
           </div>
 
-          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'PC' || productCreateForm.get('category').value.code == 'PO'">
+          <div class="clearfix">
             <div class="row">
-              <div class="col-md-3 pt-5px"><label>Medium</label></div>
-              <div class="col-md-9">
-                <select formControlName="medium">
-                  <option>Color</option>
-                  <option>Black & White</option>
-                </select>
+              <div class="col-md-3"></div>
+              <div class="col-md-9 row" style="margin: 0;padding: 0;">
+                <div class="col-md-6 text-center"><label>Color</label></div>
+                <div class="col-md-6 text-center"><label>Black & White</label></div>
               </div>
             </div>
-          </div>
-
-          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'PC' || productCreateForm.get('category').value.code == 'PO'">
-            <div class="row">
-              <div class="col-md-3 pt-5px"><label>Side</label></div>
-              <div class="col-md-9">
-                <select formControlName="mode">
-                  <option>Single Side</option>
-                  <option>Double Side</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'PC' || productCreateForm.get('category').value.code == 'PO'">
-            <div class="row">
-              <div class="col-md-3 pt-5px"><label>Unit Price</label></div>
-              <div class="col-md-9">
-                <input type="number">
-              </div>
-            </div>
-          </div>
-
-          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'MP'">
-            <div class="row">
-              <div class="col-md-3 pt-5px"><label>Brand</label></div>
-              <div class="col-md-9">
-                <select formControlName="brand">
-                  <option>Sony</option>
-                  <option>Samsung</option>
-                  <option>Apple</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'MP'">
-            <div class="row">
-              <div class="col-md-3 pt-5px"><label>Modal</label></div>
-              <div class="col-md-9">
-                <select formControlName="modal">
-                  <option>ST-26 i</option>
-                  <option>ST-26 a</option>
-                  <option>A5</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'MP'">
-            <div class="row">
-              <div class="col-md-3 pt-5px"><label>Buying Price</label></div>
-              <div class="col-md-9">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Rs</span>
-                  </div>
-                  <input type="text" class="form-control text-right" formControlName="buyingPrice">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="clearfix form-group" *ngIf="productCreateForm.get('category').value.code == 'MP'">
-            <div class="row">
-              <div class="col-md-3 pt-5px"><label>Profit</label></div>
-              <div class="col-md-9">
-
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" >Rs</span>
-                  </div>
-                  <input class="form-control text-right" type="text" formControlName="profit" >
-                </div>
-              </div>
-            </div>
-
-
           </div>
 
           <div class="clearfix form-group">
-            <label>Selling Price</label>
-            <h2>{{( productCreateForm.get('buyingPrice').value *1 + productCreateForm.get('profit').value *1 )| currency: 'Rs. '}}</h2>
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Single Side</label></div>
+              <div class="col-md-9">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Rs</span>
+                      </div>
+                      <input type="number" formControlName="singleSideColorPrice" class="form-control text-right">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Rs</span>
+                      </div>
+                      <input type="number" formControlName="singleSideBlackPrice" class="form-control text-right">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Double Side</label></div>
+              <div class="col-md-9">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Rs</span>
+                      </div>
+                      <input type="number" formControlName="doubleSideColorPrice" class="form-control text-right">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Rs</span>
+                      </div>
+                      <input type="number" formControlName="doubleSideBlackPrice" class="form-control text-right">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="clearfix form-group text-right">
             <button  type="submit">Save</button>
           </div>
+
         </form>
       </div>
 
-
       <div class="col-md-8">
-        <h2>Added Products</h2>
-        <div class="card p-3">sd</div>
-        <div class="card p-3">sd</div>
+        <div class="row overview-div" *ngIf="savedPhotoCopies.length > 0" >
+          <div class="col-md-3 form-group text-center" *ngFor="let item of savedPhotoCopies" style="padding: 5px">
+
+            <div style="border: 1px solid #bbb">
+              <span style="position: absolute;left: 15px;color: #009fa9;cursor: pointer;"><i class="fa fa-pencil"></i></span>
+              <h2>{{item.pageSize.sizeValue}}</h2>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <h6>SS Color- </h6>
+                </div>
+                <div class="col-md-6">
+                  <h6 class="price-view">{{item.singleSideColorPrice | currency:'Rs. '}}</h6>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <h6>DS Color-</h6>
+                </div>
+                <div class="col-md-6">
+                  <h6 class="price-view">{{item.doubleSideColorPrice | currency:'Rs. '}}</h6>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <h6>SS B&W -</h6>
+                </div>
+                <div class="col-md-6">
+                  <h6 class="price-view">{{item.singleSideBlackPrice | currency:'Rs. '}}</h6>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <h6>DS B&W -</h6>
+                </div>
+                <div class="col-md-6">
+                  <h6 class="price-view">{{item.doubleSideBlackPrice | currency:'Rs. '}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
