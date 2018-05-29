@@ -1,0 +1,135 @@
+<div class="animated" style="padding: 10px;">
+  <div class="card p-3 b-radius-l">
+    <div class="row">
+      <div class="col-md-4" style="padding: 0 10px 0 15px;border-right: 1px solid #b0abab;">
+        <form [formGroup]="mobilePhoneCreateForm" (submit)="createMobilePhone()">
+
+          <div class="clearfix form-group">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Barcde</label></div>
+              <div class="col-md-9">
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="barcode">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-barcode"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group" >
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Brand</label></div>
+              <div class="col-md-9">
+                <select formControlName="brand" *ngIf="brandList.length > 0" (change)="loadModelsForBrand()">
+                  <option [value]="null" disabled>Select a brand</option>
+                  <option *ngFor="let brand of brandList" [value]="brand.id">{{brand.brandName}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group" *ngIf="modalList.length > 0">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Model</label></div>
+              <div class="col-md-9">
+                <select formControlName="modal">
+                  <option [value]="null" disabled>Select a model</option>
+                  <option *ngFor="let model of  modalList" [value]="model.id">{{model.modelId}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>IMEI</label></div>
+              <div class="col-md-9">
+                <input type="text" formControlName="imei" class="form-control">
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Buying Price</label></div>
+              <div class="col-md-9">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Rs</span>
+                  </div>
+                  <input type="text" class="form-control text-right" formControlName="buyingPrice">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Profit</label></div>
+              <div class="col-md-9">
+
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" >Rs</span>
+                  </div>
+                  <input class="form-control text-right" type="text" formControlName="profit" >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group">
+            <div class="row">
+              <div class="col-md-3 pt-5px"><label>Discount</label></div>
+              <div class="col-md-9">
+                <div class="input-group">
+                  <input type="text" class="form-control text-right" formControlName="discount">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix form-group">
+            <label>Selling Price</label>
+            <h2>{{( mobilePhoneCreateForm.get('buyingPrice').value *1 + mobilePhoneCreateForm.get('profit').value *1 )| currency: 'Rs. '}}</h2>
+          </div>
+
+          <div class="clearfix form-group text-right">
+            <button  type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-8">
+        <div>
+          <h5>Currently In Stock</h5>
+        </div>
+        <div style="padding: 0px;">
+          <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>IMEI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Samsung</td>
+              <td>J7</td>
+              <td>012525122500552</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
