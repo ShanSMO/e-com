@@ -22,8 +22,13 @@ export class MobilePhoneService {
       .pipe(map(response => response));
   }
 
-  leaseOrSell(requestBody): Observable<any> {
-    return this.http.post(Global.SERVER_URL.concat(ApiEndPoints.LEASE_OR_SALE), requestBody)
+  leaseMobile(requestBody): Observable<any> {
+    return this.http.post(Global.SERVER_URL.concat(ApiEndPoints.LEASE_MOBILE), requestBody)
+      .pipe(map(response => response));
+  }
+
+  sellMobile(requestBody): Observable<any> {
+    return this.http.post(Global.SERVER_URL.concat(ApiEndPoints.SELL_MOBILE), requestBody)
       .pipe(map(response => response));
   }
 }

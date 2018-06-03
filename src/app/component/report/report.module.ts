@@ -5,16 +5,23 @@ import { MobilePhoneReportComponent } from './mobile-phone-report/mobile-phone-r
 import { RechargeCardReportComponent } from './recharge-card-report/recharge-card-report.component';
 import { PhonePartsReportComponent } from './phone-parts-report/phone-parts-report.component';
 import { AccessoryReportComponent } from './accessory-report/accessory-report.component';
+import { ReportComponent } from './report.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   ],
   declarations: [
     PhotoCopyReportComponent,
     MobilePhoneReportComponent,
     RechargeCardReportComponent,
     PhonePartsReportComponent,
-    AccessoryReportComponent]
+    AccessoryReportComponent,
+    ReportComponent]
 })
 export class ReportModule { }

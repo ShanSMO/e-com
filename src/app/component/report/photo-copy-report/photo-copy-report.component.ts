@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as jQuery from 'jquery';
 
 @Component({
   selector: 'app-photo-copy-report',
@@ -11,6 +12,7 @@ export class PhotoCopyReportComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // jQuery('#datetimepicker').datetimepicker();
   }
 
 }

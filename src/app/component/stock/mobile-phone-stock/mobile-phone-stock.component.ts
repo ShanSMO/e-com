@@ -4,12 +4,13 @@ import {BrandService} from '../../../service/brand.service';
 import {ProductService} from '../../../service/product.service';
 import {MobilePhoneService} from '../../../service/mobile-phone.service';
 import {ModelService} from '../../../service/model.service';
+import {StockService} from '../../../service/stock.service';
 
 @Component({
   selector: 'app-mobile-phone-stock',
   templateUrl: './mobile-phone-stock.component.html',
   styleUrls: ['./mobile-phone-stock.component.css'],
-  providers: [BrandService , ModelService , MobilePhoneService]
+  providers: [BrandService , ModelService , MobilePhoneService, StockService]
 })
 export class MobilePhoneStockComponent implements OnInit {
 
@@ -28,14 +29,18 @@ export class MobilePhoneStockComponent implements OnInit {
   profit: number;
   brandList: any[] = [];
   modalList: any[] = [];
+  stockItemList: any[] = [];
+  availableCount: number = 0;
 
   constructor(private productService: ProductService,
               private brandService: BrandService,
               private modelService: ModelService,
-              private mobilePhoneService: MobilePhoneService) { }
+              private mobilePhoneService: MobilePhoneService,
+              private stockService: StockService) { }
 
   ngOnInit() {
     this.loadBrands();
+    this.loadMobileStock();
   }
 
   loadBrands() {
@@ -78,8 +83,15 @@ export class MobilePhoneStockComponent implements OnInit {
     this.mobilePhoneService.create(requestBody).subscribe(data => {
       if (data.status) {
         this.mobilePhoneCreateForm.reset();
+        this.loadMobileStock();
       }
     });
   }
 
+  loadMobileStock() {
+    const requestBody = {};
+    this.stockService.loadMobileStock(requestBody).subscribe(data => {
+      this.stockItemList = data.objects;
+    });
+  }
 }

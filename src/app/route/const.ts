@@ -18,6 +18,11 @@ import {MobilePhoneStockComponent} from '../component/stock/mobile-phone-stock/m
 import {RechargeCardStockComponent} from '../component/stock/recharge-card-stock/recharge-card-stock.component';
 import {PhonePartStockComponent} from '../component/stock/phone-part-stock/phone-part-stock.component';
 import {AccessoriesComponent} from '../component/stock/accessories/accessories.component';
+import {ReportComponent} from "../component/report/report.component";
+import {MobilePhoneReportComponent} from "../component/report/mobile-phone-report/mobile-phone-report.component";
+import {AccessoryReportComponent} from "../component/report/accessory-report/accessory-report.component";
+import {PhonePartsReportComponent} from "../component/report/phone-parts-report/phone-parts-report.component";
+import {RechargeCardReportComponent} from "../component/report/recharge-card-report/recharge-card-report.component";
 
 export const routers: Routes = [
   {path: 'login' , component: LoginComponent},
@@ -33,9 +38,6 @@ export const routers: Routes = [
     {path: 'product-setting' , component: ProductSettingComponent}
   ]},
   {path: 'settings' , component: SettingsComponent},
-  {path: '' , component: CommonLayoutComponent , children: [
-    {path: 'report' , component: PhotoCopyReportComponent}
-  ]},
   {path: '', component: CommonLayoutComponent, children: [
     {path: 'selling', component: SellingComponent, children: [
       {path: 'photo-copy', component: PhotoCopyComponent},
@@ -51,6 +53,15 @@ export const routers: Routes = [
       {path: 'phone-parts', component: PhonePartStockComponent},
       {path: 'recharge-cards', component: RechargeCardStockComponent},
       {path: 'accessories', component: AccessoriesComponent}
+    ]}
+  ]},
+  {path: '', component: CommonLayoutComponent, children: [
+    {path: 'report', component: ReportComponent, children: [
+      {path: 'photo-copy', component: PhotoCopyReportComponent},
+      {path: 'mobile', component: MobilePhoneReportComponent},
+      {path: 'phone-parts', component: PhonePartsReportComponent},
+      {path: 'recharge-cards', component: RechargeCardReportComponent},
+      {path: 'accessories', component: AccessoryReportComponent}
     ]}
   ]}
 

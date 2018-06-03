@@ -8,7 +8,8 @@ export const ApiEndPoints = {
   LOAD_MODELS_FOR_BRAND: '/model/load-by-brand',
   CREATE_MOBILE_PHONE: '/mobile-phone/create',
   LOAD_PHONE_BY_BARCODE: '/mobile-phone/load-by-barcode',
-  LEASE_OR_SALE: '/selling/mobile',
+  SELL_MOBILE: '/selling/mobile',
+  LEASE_MOBILE: '/lease/phone',
   LOAD_PAGE_SIZES: '/page-size/load-all',
   CREATE_PHOTO_COPY: '/photo-copy/create',
   LOAD_ALL_SAVED: '/photo-copy/load-all',
@@ -16,4 +17,6 @@ export const ApiEndPoints = {
   SELL_PHOTOCOPY_BULK: '/selling/photo-copy-bulk',
 
   LOAD_DASHBOARD_DATA: '/selling/load-all-count',
+  LOAD_MOBILE_STOCK: '/stock/in-stock-mobile',
+  LOAD_MOBILE_STOCK_COUNT: '/stock/get-in-stock-mobile-count',
 };

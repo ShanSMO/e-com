@@ -1,6 +1,8 @@
 <div class="animated" style="padding: 10px;">
   <div class="card p-3 b-radius-l">
-    <div class="row">
+
+
+    <div class="row" >
       <div class="col-md-4" style="padding: 0 10px 0 15px;border-right: 1px solid #b0abab;">
         <form [formGroup]="mobilePhoneCreateForm" (submit)="createMobilePhone()">
 
@@ -111,19 +113,37 @@
           <h5>Currently In Stock</h5>
         </div>
         <div style="padding: 0px;">
-          <table class="table table-bordered table-striped">
+
+          <div *ngIf="stockItemList.length <= 0" style="height: 500px; margin: 0 auto;padding-top: 10%;">
+            <div class="text-center">
+              <div style="font-size: 60px;color: #ff6a6a;">
+                <span>
+                  <i class="fa fa-exclamation-triangle"></i>
+                </span>
+              </div>
+              <h2> Stock is Empty </h2>
+            </div>
+          </div>
+
+          <table class="table table-bordered table-striped" *ngIf="stockItemList.length > 0">
             <thead>
             <tr>
               <th>Brand</th>
               <th>Model</th>
               <th>IMEI</th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>Samsung</td>
-              <td>J7</td>
-              <td>012525122500552</td>
+            <tr *ngFor="let item of stockItemList">
+              <td>{{item.brand.brandName}}</td>
+              <td>{{item.model.modelId}}</td>
+              <td>{{item.imei}}</td>
+              <td class="text-center">
+                <span>
+                  <i class="fa fa-close"></i>
+                </span>
+              </td>
             </tr>
             </tbody>
           </table>

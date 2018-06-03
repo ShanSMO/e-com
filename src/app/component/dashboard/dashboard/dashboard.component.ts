@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
   loadDashboardData() {
     const requestBody = {
       startDate: '2018-04-29',
-      endDate: '2018-05-29'
+      endDate: '2018-05-30'
     };
     this.dashboardService.loadStaticData(requestBody).subscribe(data => {
       console.log(data);
