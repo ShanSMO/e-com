@@ -16,7 +16,7 @@ import {StockModule} from './component/stock/stock.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

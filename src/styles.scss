@@ -79,17 +79,19 @@ th {
 }
 
 .pricing-view {
-  background: rgba(21, 52, 53, 0.62);
+  //background: rgba(21, 52, 53, 0.62);
   padding: 10px;
-  color: #fff;
+  color: #717070;
   border-radius: 2px;
+  border: 2px dashed #c7c6c6;
 }
 
 .mob-price {
-  background: #5b7dbd;
+  //background: #5b7dbd;
   border-radius: 2px;
-  color: #fff;
+  color: #717070;
   padding: 10px 5px 10px 15px;
+  border: 2px dashed #c7c6c6;
 }
 
 .let-wod-space {

@@ -16,6 +16,7 @@
       <div class="col-md-5">
         <form [formGroup]="mobileSellForm">
 
+          <!-- Barcode input -->
           <div class="clearfix form-group">
             <div class="row">
               <div class="col-md-3 pt-5px"><label>Barcode</label></div>
@@ -30,6 +31,7 @@
             </div>
           </div>
 
+          <!-- Selling type -->
           <div class="clearfix form-group" *ngIf="scannedDetials !== null">
             <div class="row">
               <div class="col-md-3 pt-5px"><label>Selling Type</label></div>
@@ -42,6 +44,7 @@
             </div>
           </div>
 
+          <!-- Deduction Type -->
           <div class="clearfix form-group" *ngIf="mobileSellForm.get('issueType').value == 'LEASE'">
             <div class="row">
               <div class="col-md-3 pt-5px"><label>Deduction Type</label></div>
@@ -54,11 +57,12 @@
             </div>
           </div>
 
+          <!-- Interest Rate -->
           <div class="clearfix form-group" *ngIf="mobileSellForm.get('issueType').value == 'LEASE'">
             <div class="row">
               <div class="col-md-3 pt-5px"><label>Interest Rate</label></div>
               <div class="col-md-9">
-                <select formControlName="interestRate" (change)="setSellingPrices()">
+                <select formControlName="interestRate" class="text-right" (change)="setSellingPrices()">
                   <option value="2">2 %</option>
                   <option value="3">3 %</option>
                   <option value="4">4 %</option>
@@ -69,16 +73,24 @@
             </div>
           </div>
 
+          <!-- Down Payment -->
           <div class="clearfix form-group" *ngIf="mobileSellForm.get('issueType').value == 'LEASE'">
             <div class="row">
               <div class="col-md-3 pt-5px"><label>Down Payment</label></div>
               <div class="col-md-9">
-                <input type="text" class="form-control" formControlName="downPayment"
-                       (keyup)="setSellingPrices()" [value]="minimubDownPayment">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Rs.</span>
+                  </div>
+                  <input type="text" class="form-control text-right" formControlName="downPayment"
+                         (keyup)="setSellingPrices()" [value]="minimubDownPayment">
+                </div>
+
               </div>
             </div>
           </div>
 
+          <!-- Time period -->
           <div class="clearfix form-group" *ngIf="mobileSellForm.get('issueType').value == 'LEASE'">
             <div class="row">
               <div class="col-md-3 pt-5px"><label>Time Period</label></div>
@@ -95,6 +107,7 @@
             </div>
           </div>
 
+          <!-- Selling price calculation -->
           <div class="clearfix form-group" *ngIf="scannedDetials !== null">
             <div class="row m-0">
               <div class="col-md-3 pt-5px"></div>
@@ -175,8 +188,14 @@
                 <div class="col-md-6">Buying Price</div>
                 <div class="col-md-6 let-wod-space">: {{scannedDetials.buyingPrice | currency:'Rs. '}}</div>
               </div>
+
             </div>
           </div>
+        </div>
+
+        <!-- Bill -->
+        <div>
+
         </div>
 
       </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PhotoCopyService} from '../../../../service/photo-copy.service';
 import {FormControl, FormGroup} from '@angular/forms';
-import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-photo-copy',
