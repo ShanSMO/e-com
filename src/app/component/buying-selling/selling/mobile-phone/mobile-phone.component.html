@@ -237,7 +237,7 @@
           </div>
 
 
-          <div class=" row clearfix form-group">
+          <div class=" row clearfix form-group" *ngIf="mobileSellForm.get('issueType').value === 'LEASE'">
               <div class="col-md-6" style="border-right: 1px solid #444;">
                 <label style="border-bottom: 1px solid;width: 100%;">Guarantee 1</label>
                 <div class="row">
