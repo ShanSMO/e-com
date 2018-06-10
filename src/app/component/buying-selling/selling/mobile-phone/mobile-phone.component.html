@@ -23,8 +23,8 @@
               <div class="col-md-9">
                 <div class="input-group">
                   <input type="text" class="form-control" formControlName="barcodeId" (focusout)="loadMoreDetails()" >
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-barcode"></i></span>
+                  <div class="input-group-prepend" style="cursor: pointer;">
+                    <span class="input-group-text" (click)="loadMoreDetails()"><i class="fa fa-barcode" ></i></span>
                   </div>
                 </div>
               </div>
