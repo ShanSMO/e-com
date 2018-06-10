@@ -115,11 +115,11 @@ export class MobilePhoneComponent implements OnInit {
 
   process() {
     this.showBill = true;
-    const lease = 'LS';
-    if (lease === 'LS') {
-      // this.leaseMobile();
+    const lease = this.mobileSellForm.get('issueType').value;
+    if (lease === 'LEASE') {
+      this.leaseMobile();
     } else {
-      // this.sellMobile();
+      this.sellMobile();
     }
   }
 
