@@ -116,7 +116,7 @@ export class MobilePhoneComponent implements OnInit {
   leaseMobile() {
     this.leaseMobileRequest = new LeaseMobileRequest();
     this.leaseMobileRequest.category = {id: 1};
-    this.leaseMobileRequest.date = '2018-05-30';
+    this.leaseMobileRequest.date = new Date();
     this.leaseMobileRequest.deductionType = 'REDUCE_BALANCE';
     this.leaseMobileRequest.downPayment = 12500;
     this.leaseMobileRequest.interestRate = 4.00;
@@ -140,7 +140,7 @@ export class MobilePhoneComponent implements OnInit {
       customerDto: null,
       sellingPrice: this.mobileSellForm.get('deviceDetail').value.sellingPrice,
       discount: this.mobileSellForm.get('discount').value,
-      date: '2018-05-28',
+      date: new Date(),
       userDto: {
         id: 1
       }
