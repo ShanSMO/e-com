@@ -1,5 +1,5 @@
 export class LeaseMobileRequest {
-  date: string;
+  date: any;
   downPayment: number;
   remainBalance: number;
   interestRate: number;
