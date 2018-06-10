@@ -8,7 +8,7 @@ import * as $ from 'jquery';
 })
 export class AppComponent implements OnInit{
 
-  title = 'app';
+  currentDate: any;
 
   ngOnInit(): void {
     $('#sidebarCollapse').on('click', function () {
@@ -19,5 +19,12 @@ export class AppComponent implements OnInit{
       $(this).siblings('li.active').removeClass('active');
       $(this).addClass('active');
     });
+
+    // ---- Current date view
+    const fullDate = new Date();
+    const year = fullDate.getFullYear();
+    const month = fullDate.getMonth().toString().length < 2 ? '0' + fullDate.getMonth() : fullDate.getMonth();
+    const date = fullDate.getDate();
+    this.currentDate = year + '-' + month + '-' + date;
   }
 }

@@ -55,8 +55,14 @@
 
   <div id="content">
     <div style="background: #ffffff;padding: 5px;">
-      <div  style="padding: 5px;">
-        <i id="sidebarCollapse" class="fa fa-bars" style="border-right: 1px solid #a6a6a6;padding-right: 10px;cursor: pointer"></i>
+      <div  style="padding: 5px;" >
+        <div class="col-md-1 d-inline">
+          <i id="sidebarCollapse" class="fa fa-bars" style="border-right: 1px solid #a6a6a6;padding-right: 10px;cursor: pointer"></i>
+        </div>
+
+        <div class="col-md-11 d-inline text-right">
+          Today : {{currentDate}}
+        </div>
       </div>
     </div>
     <router-outlet></router-outlet>
