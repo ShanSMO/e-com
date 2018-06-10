@@ -66,6 +66,7 @@ export class MobilePhoneComponent implements OnInit {
   remainTotalPrice: any;
   minimubDownPayment: any;
   leaseMobileRequest: LeaseMobileRequest;
+  showBill: boolean = false;
 
   constructor(private mobilePhoneService: MobilePhoneService,
               private stockService: StockService) { }
@@ -113,11 +114,12 @@ export class MobilePhoneComponent implements OnInit {
   }
 
   process() {
+    this.showBill = true;
     const lease = 'LS';
     if (lease === 'LS') {
-      this.leaseMobile();
+      // this.leaseMobile();
     } else {
-      this.sellMobile();
+      // this.sellMobile();
     }
   }
 
