@@ -88,14 +88,22 @@ export class MobilePhoneComponent implements OnInit {
   setSellingPrices() {
     const sellingType = this.mobileSellForm.get('issueType').value;
     if (sellingType == 'LEASE') {
-      this.intRate = this.mobileSellForm.get('interestRate').value;
+      this.intRate = parseFloat(this.mobileSellForm.get('interestRate').value);
+      console.log(this.intRate);
       this.minimubDownPayment = this.scannedDetials.buyingPrice * 30 / 100;
-      this.remainPrice = (this.scannedDetials.buyingPrice - this.mobileSellForm.get('downPayment').value * 1);
-
+      this.mobileSellForm.get('downPayment').setValue(this.minimubDownPayment);
+      console.log(this.minimubDownPayment);
+      this.remainPrice = (this.scannedDetials.sellingPrice - parseFloat(this.mobileSellForm.get('downPayment').value));
+      console.log(this.scannedDetials.sellingPrice);
+      console.log(this.remainPrice);
       // Fixed Installment Type
       if (this.mobileSellForm.get('leaseType').value === 'FR') {
-        const interest = ((this.remainPrice * this.intRate) /  100 ) * this.mobileSellForm.get('paymentPeriod').value;
-        this.remainTotalPrice = (this.remainPrice * 1) + (this.mobileSellForm.get('downPayment').value * 1) + interest;
+        const interest = ((this.remainPrice * (this.intRate) /  100) ) * parseFloat(this.mobileSellForm.get('paymentPeriod').value);
+
+        console.log(interest);
+        // this.remainTotalPrice = (this.remainPrice * 1) + (this.mobileSellForm.get('downPayment').value * 1) + interest;
+        this.remainTotalPrice = (this.remainPrice * 1)  + interest;
+        console.log(this.remainTotalPrice);
       } else {
 
       }
