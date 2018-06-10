@@ -20,7 +20,7 @@ export class PhotoCopyComponent implements OnInit {
     side: new FormControl(),
     qty: new FormControl(),
     discount: new FormControl(0),
-    date: new FormControl()
+    date: new FormControl('5544544')
   });
 
   bulk: any[] = [];
@@ -30,6 +30,7 @@ export class PhotoCopyComponent implements OnInit {
 
   ngOnInit() {
     this.loadAvailableSheets();
+
   }
 
   loadAvailableSheets() {
@@ -60,7 +61,8 @@ export class PhotoCopyComponent implements OnInit {
       qty: this.pCopySellForm.get('qty').value,
       printingSides: this.pCopySellForm.get('side').value,
       printingMedium: this.pCopySellForm.get('medium').value,
-      date: this.pCopySellForm.get('date').value,
+      // date: this.pCopySellForm.get('date').value,
+      date: new Date(),
       unitPrice: this.unitPrice,
       total: this.pCopySellForm.get('qty').value * this.unitPrice - this.pCopySellForm.get('discount').value,
       hasDiscount: false,
@@ -78,5 +80,4 @@ export class PhotoCopyComponent implements OnInit {
     });
 
   }
-
 }
